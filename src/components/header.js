@@ -1,7 +1,7 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import pokeball from '../Assets/Pokeball.png'
+import pokeball from '../assets/Pokeball.png'
 import styles from '../styles/Header.module.scss'
 
 export default function Header() {
