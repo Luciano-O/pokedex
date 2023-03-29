@@ -6,9 +6,14 @@
   flex-direction: column;
   box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
   justify-content: space-evenly;
+  transition: 0.2s ease-in;
   align-items: center;
   width: 200px;
   height: 260px;
+
+  &:hover {
+    padding: 10px;
+  }
 
   .poke_name {
     font-family: 'Jura', sans-serif;

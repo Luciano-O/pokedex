@@ -11,7 +11,7 @@ export default function Header() {
       <div className={styles.input_container}>
         <FontAwesomeIcon 
           icon={faMagnifyingGlass} 
-          style={{color: "#666666",}}
+          style={{color: "#666666", width: '15px'}}
           className={styles.search_icon}
         />  
         <input 
