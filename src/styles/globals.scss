@@ -2,4 +2,16 @@
 
 body {
   margin: 0;
+  background-image: url(https://wallpapers-clan.com/wp-content/uploads/2022/05/slowpoke-pokemon-minimalist-wallpaper.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-attachment: fixed;
+}
+
+@media only screen and (min-width: 700px) {
+  body {
+    background-image: url(https://wallpaper-house.com/data/out/9/wallpaper2you_355562.jpg);
+    background-position: right;
+  }
 }
