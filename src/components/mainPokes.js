@@ -1,5 +1,6 @@
 import { getPokes } from "@/utils/reqs"
 import { useEffect, useState } from "react"
+import styles from '../styles/MainPokes.module.scss'
 import PokeCard from "./pokeCard"
 
 export default function MainPokes() {
@@ -19,9 +20,10 @@ export default function MainPokes() {
   }, [])
 
   return(
-    <>
-      <h1>Ola</h1>
-      {loading ? 'Carregando' : <PokeCard url={pokes[0].url} />}
-    </>
+    <main className={styles.main_pokes}>
+      {loading ? 
+        'Carregando' : 
+        pokes.map((poke) => <PokeCard key={poke.name} url={poke.url} />)}
+    </main>
   )
 }
