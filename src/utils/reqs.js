@@ -4,7 +4,7 @@ export const getPokes = async (url) => {
   try{
     const result = await axios({
       method: 'GET',
-      url: `${url}`
+      url
     })
 
     return result.data

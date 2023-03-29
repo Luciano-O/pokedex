@@ -1,0 +1,40 @@
+.poke_card {
+  position: relative;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
+  justify-content: space-evenly;
+  align-items: center;
+  width: 200px;
+  height: 260px;
+
+  .poke_name {
+    font-family: 'Jura', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+  }
+
+  .poke_id {
+    font-family: 'Inter', sans-serif;
+    color: #666666;
+    font-size: 11px;
+    margin: 0;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+  }
+
+  .poke_types {
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+
+    span {
+      font-family: 'Jura', sans-serif;
+      font-weight: 500;
+      border-radius: 5px;
+      padding: 0 5px 2px 5px;
+    }
+  }
+}
