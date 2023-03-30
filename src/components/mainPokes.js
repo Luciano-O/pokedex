@@ -38,16 +38,19 @@ export default function MainPokes() {
   }
 
   return(
-    <main className={styles.main_pokes}>
-      {loading ? 
-        'Carregando' : 
-        pokes.map((poke) => <PokeCard key={poke.name} url={poke.url} />)}
+    <>
+      <main className={styles.main_pokes}>
+        {loading ? 
+          'Carregando' : 
+          pokes.map((poke) => <PokeCard key={poke.name} url={poke.url} />)}
+      </main>
       <button
         type="button"
         onClick={handleButton}
+        className={styles.load_more}
       >
         Carregar mais
       </button>
-    </main>
+    </>
   )
 }

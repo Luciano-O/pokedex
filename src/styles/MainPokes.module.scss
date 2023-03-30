@@ -5,3 +5,23 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.load_more {
+  width: 200px;
+  height: 50px;
+  display: block;
+  border-radius: 50px;
+  border: 0;
+  margin: 25px auto;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  line-height: 29px;
+  background: #ED1C24;
+  box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.33);
+  border-radius: 50px;
+}
+
