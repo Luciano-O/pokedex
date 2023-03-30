@@ -1,4 +1,5 @@
 import { Poke_data } from '@/context/context'
+import { getPokes } from '@/utils/reqs'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
@@ -7,8 +8,18 @@ import pokeball from '../assets/Pokeball.png'
 import styles from '../styles/Header.module.scss'
 
 export default function Header() {
-  const { search, setSearch } = useContext(Poke_data)
+  const { setSearch, setAllPokes } = useContext(Poke_data)
   const [ query, setQuery ] = useState('')
+
+  useState(() => {
+    const bringAllPokes = async () => {
+      const { results } = await getPokes('https://pokeapi.co/api/v2/pokemon/?limit=1281')
+
+      setAllPokes(results)
+    }
+
+    bringAllPokes();
+  }, [])
 
   const searchBtn = () => {
     setSearch(query)
@@ -26,7 +37,7 @@ export default function Header() {
         />  
         <input 
           type='text'
-          placeholder='Insira o nome ou numero'
+          placeholder='Insira o nome do pokemon'
           onChange={({target}) => setQuery(target.value)}
           value={query}
           className={styles.search_input}
