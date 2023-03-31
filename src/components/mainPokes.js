@@ -23,8 +23,6 @@ export default function MainPokes() {
 
         setPokes((currentPokes) => [...currentPokes, ...response])
 
-        console.log('1');
-
         setLoading(false)
 
         return;
@@ -49,13 +47,10 @@ export default function MainPokes() {
       setPokes([])
 
       setLimit(12)
-
-      console.log('2');
     }
 
     handleDisplayPokes();
   }, [search])
-
 
   const handleButton = () => {
     setLimit((currentLimit) => currentLimit + 12)
@@ -77,7 +72,7 @@ export default function MainPokes() {
       <main className={styles.main_pokes}>
         {loading ? 
           'Carregando' : 
-          pokes.map((poke) => <PokeCard key={poke.name} url={poke.url} />)}
+          pokes.map((poke, index) => <PokeCard id={index} key={poke.name} url={poke.url} />)}
       </main>
       <div id="sentinel" className={styles.sentinel} />
       {!isTracking && 

@@ -5,7 +5,7 @@ import styles from '../styles/PokeCard.module.scss'
 import { typesColor } from "@/utils/types"
 
 export default function PokeCard(props) {
-  const { url } = props
+  const { url, id } = props
 
   const [ poke, setPoke ] = useState([])
 
@@ -19,9 +19,31 @@ export default function PokeCard(props) {
     bringPoke();
   }, [url])
 
+  useEffect(() => {
+    const setAnimation = () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.show);
+          } else {
+            entry.target.classList.remove(styles.show);
+          }
+        })
+      })
+      if(poke) {
+        const card = document.querySelector(`#poke${id}`)
+        if(card) {
+          observer.observe(card)
+        }
+      }
+    }
+
+    setAnimation();
+  }, [poke])
+
   return(
     <>
-      {poke.sprites && <card className={styles.poke_card}>
+      {poke.sprites && <card id={`poke${id}`} className={styles.poke_card}>
         <span className={styles.poke_id}>N°{poke.id}</span>
         <Image 
           src={poke.sprites.other['official-artwork'].front_default}

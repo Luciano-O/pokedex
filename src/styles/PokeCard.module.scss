@@ -2,18 +2,22 @@
   position: relative;
   background-color: white;
   border-radius: 15px;
+  opacity: 0;
+  transition: all 0.5s;
+  filter: blur(5px);
+  transform: translateX(-100%);
   display: flex;
   margin: 1rem;
   flex-direction: column;
   box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25);
   justify-content: space-evenly;
-  transition: 0.2s ease-in;
   align-items: center;
   width: 200px;
   height: 260px;
 
   &:hover {
     padding: 10px;
+    transition: 0.2s;
   }
 
   .poke_name {
@@ -46,4 +50,10 @@
       padding: 0 5px 2px 5px;
     }
   }
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
