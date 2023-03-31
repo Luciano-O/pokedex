@@ -5,6 +5,7 @@ export const Poke_data = createContext(null);
 function Context({ children }) {
   const [search, setSearch] = useState('');
   const [allPokes, setAllPokes] = useState([]);
+  const [displayPokes, setDisplayPokes] = useState([]);
 
   return (
     <Poke_data.Provider value={
@@ -12,7 +13,9 @@ function Context({ children }) {
         search, 
         setSearch,
         allPokes,
-        setAllPokes
+        setAllPokes,
+        displayPokes,
+        setDisplayPokes
       }
     }>
       {children}

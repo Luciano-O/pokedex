@@ -8,21 +8,29 @@ import pokeball from '../assets/Pokeball.png'
 import styles from '../styles/Header.module.scss'
 
 export default function Header() {
-  const { setSearch, setAllPokes } = useContext(Poke_data)
+  const { setSearch,
+          allPokes,
+          setAllPokes,
+          setDisplayPokes
+        } = useContext(Poke_data)
+
   const [ query, setQuery ] = useState('')
 
   useState(() => {
     const bringAllPokes = async () => {
       const { results } = await getPokes('https://pokeapi.co/api/v2/pokemon/?limit=1281')
 
-      setAllPokes(results)
+      setAllPokes(results);
+      setDisplayPokes(results);
     }
 
     bringAllPokes();
   }, [])
 
   const searchBtn = () => {
-    setSearch(query)
+    const filtred = allPokes.filter(({name}) => name.includes(query))
+
+    setDisplayPokes(filtred);
   }
 
   return(

@@ -6,35 +6,34 @@ import PokeCard from "./pokeCard"
 
 export default function MainPokes() {
   const [pokes, setPokes] = useState([])
-  const [limit, setLimit] = useState(24)
-  const [allResults, setAllResults] = useState([])
-  const { allPokes, search } = useContext(Poke_data)
+  const [limit, setLimit] = useState(12)
+  const { displayPokes, setDisplayPokes } = useContext(Poke_data)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const bringPokes = async () => {
-      const filtred = allPokes.filter(({name}) => name.includes(search))
+    const handleDisplayPokes = () => {
+      setPokes([])
 
-      const results = filtred.slice(0, 12)
+      setLimit(12)
+    }
 
-      setLimit(24)
+    handleDisplayPokes();
+  }, [displayPokes])
 
-      setPokes(results)
+  useEffect(() => {
+    const bringPokes = () => {
+      const results = displayPokes.slice(limit - 12, limit)
+
+      setPokes((currentPokes) => [...currentPokes, ...results])
 
       setLoading(false)
-
-      setAllResults(filtred)
     }
 
     bringPokes()
-  }, [allPokes, search])
+  }, [limit, displayPokes])
 
   const handleButton = () => {
-    setLimit(limit + 12)
-
-    const newFilter = allResults.slice(limit - 12, limit)
-
-    setPokes([...pokes, ...newFilter])
+    setLimit((currentLimit) => currentLimit + 12)
   }
 
   return(
