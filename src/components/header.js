@@ -16,21 +16,12 @@ export default function Header() {
 
   const [ query, setQuery ] = useState('')
 
-  useState(() => {
-    const bringAllPokes = async () => {
-      const { results } = await getPokes('https://pokeapi.co/api/v2/pokemon/?limit=1281')
-
-      setAllPokes(results);
-      setDisplayPokes(results);
-    }
-
-    bringAllPokes();
-  }, [])
-
   const searchBtn = () => {
     const filtred = allPokes.filter(({name}) => name.includes(query))
 
     setDisplayPokes(filtred);
+
+    setSearch(query);
   }
 
   return(
