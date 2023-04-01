@@ -48,6 +48,7 @@ export default function PokeCard(props) {
         <Image 
           src={poke.sprites.other['official-artwork'].front_default}
           alt={`${poke.name} Official artwork image`}
+          loading="lazy"
           width='155'
           height='165'
         />
