@@ -37,7 +37,7 @@ export default function Header() {
         <input 
           type='text'
           placeholder='Insira o nome do pokemon'
-          onChange={({target}) => setQuery(target.value)}
+          onChange={({target}) => setQuery(target.value.toLowerCase())}
           value={query}
           className={styles.search_input}
         />
