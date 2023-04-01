@@ -52,6 +52,28 @@
   }
 }
 
+@media only screen and (max-width: 580px) {
+  .poke_card {
+    width: 300px;
+    height: 390px;
+
+    img {
+      width: 227px;
+      height: 247px;
+    }
+
+    .poke_name {
+      font-size: 38px;
+    }
+  }
+
+  .poke_types {
+    span {
+      font-size: 25px;
+    }
+  }
+}
+
 .show {
   opacity: 1;
   filter: blur(0);
