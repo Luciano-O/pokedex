@@ -12,37 +12,6 @@ export default function MainPokes() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const bringPokes = async () => {
-      if(loading) {
-        const { results } = await getPokes('https://pokeapi.co/api/v2/pokemon/?limit=1281')
-
-        setAllPokes(results);
-        setDisplayPokes(results);
-
-        const response = results.slice(limit - 12, limit)
-
-        setPokes((currentPokes) => [...currentPokes, ...response])
-
-        setLoading(false)
-
-        return;
-      }
-
-      if(limit === 12) {
-        setPokes([]);
-      }
-
-      const response = displayPokes.slice(limit - 12, limit)
-
-      setPokes((currentPokes) => [...currentPokes, ...response])
-
-      setLoading(false)
-    }
-
-    bringPokes()
-  }, [limit, displayPokes])
-
-  useEffect(() => {
     const handleDisplayPokes = () => {
       setPokes([])
 
@@ -52,6 +21,38 @@ export default function MainPokes() {
     handleDisplayPokes();
   }, [search])
 
+  useEffect(() => {
+    const bringFirstPokes = async () => {
+      const { results } = await getPokes('https://pokeapi.co/api/v2/pokemon/?limit=1281')
+
+      setAllPokes(results);
+      setDisplayPokes(results);
+
+      const response = results.slice(limit - 12, limit)
+
+      setPokes((currentPokes) => [...currentPokes, ...response])
+
+      setLoading(false)
+    }
+
+    const bringPokes = () => {
+      if(limit === 12) {
+        setPokes([]);
+      }
+
+      const response = displayPokes.slice(limit - 12, limit)
+
+      setPokes((currentPokes) => [...currentPokes, ...response])
+    }
+    
+    if(loading) {
+      bringFirstPokes()
+    } else {
+      bringPokes()
+    }
+    
+  }, [limit, displayPokes])
+
   const handleButton = () => {
     setLimit((currentLimit) => currentLimit + 12)
 
@@ -59,7 +60,6 @@ export default function MainPokes() {
 
     const intersectionObserver = new IntersectionObserver((entries) => {
       if(entries.some((entry) => entry.isIntersecting)) {
-        console.log('Sentinel!!!');
         setLimit((currentLimit) => currentLimit + 12)
       }
     })

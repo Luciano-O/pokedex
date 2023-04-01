@@ -17,7 +17,7 @@ export default function Header() {
   const [ query, setQuery ] = useState('')
 
   const searchBtn = () => {
-    const filtred = allPokes.filter(({name}) => name.includes(query))
+    const filtred = allPokes.filter(({name}) => name.includes(query.toLowerCase()))
 
     setDisplayPokes(filtred);
 
@@ -37,7 +37,7 @@ export default function Header() {
         <input 
           type='text'
           placeholder='Insira o nome do pokemon'
-          onChange={({target}) => setQuery(target.value.toLowerCase())}
+          onChange={({target}) => setQuery(target.value)}
           value={query}
           className={styles.search_input}
         />
