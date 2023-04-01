@@ -24,9 +24,24 @@ export default function Header() {
     setSearch(query);
   }
 
+  const homeBtn = () => {
+    setQuery('')
+
+    const filtred = allPokes.filter(({name}) => name.includes(''))
+
+    setDisplayPokes(filtred);
+
+    setSearch('');
+  }
+
   return(
     <header className={styles.header}>
-      <Image src={pokeball} alt='pokebola' className={styles.pokeball} />
+      <Image 
+        src={pokeball}
+        alt='pokebola'
+        className={styles.pokeball}
+        onClick={homeBtn}
+      />
       <div className={styles.input_container}>
         <FontAwesomeIcon 
           icon={faMagnifyingGlass} 
