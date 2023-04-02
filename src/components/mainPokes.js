@@ -3,6 +3,9 @@ import { getPokes } from "@/utils/reqs"
 import { useContext, useEffect, useState } from "react"
 import styles from '../styles/MainPokes.module.scss'
 import PokeCard from "./pokeCard"
+import Loading from "./loading"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faShuffle } from "@fortawesome/free-solid-svg-icons"
 
 export default function MainPokes() {
   const [pokes, setPokes] = useState([])
@@ -53,7 +56,7 @@ export default function MainPokes() {
     
   }, [limit, displayPokes])
 
-  const handleButton = () => {
+  const loadMoreBtn = () => {
     setLimit((currentLimit) => currentLimit + 12)
 
     setIsTracking(true);
@@ -67,18 +70,33 @@ export default function MainPokes() {
     return () => intersectionObserver.disconnect();
   }
 
+  const randomBtn = () => {
+    setPokes([])
+
+    const random = Math.floor(Math.random(12 - 1281) * 1281)
+
+    setLimit(random)
+  }
+
   return(
     <>
+      <div
+        onClick={randomBtn}
+        className={styles.random}
+      >
+        <FontAwesomeIcon icon={faShuffle} style={{color: "#ffffff", width: '30px', height: "30px"}} />
+        <span>Aleatório</span>
+      </div>
       <main className={styles.main_pokes}>
         {loading ? 
-          'Carregando' : 
+          <Loading /> : 
           pokes.map((poke, index) => <PokeCard id={index} key={poke.name} url={poke.url} />)}
       </main>
       <div id="sentinel" className={styles.sentinel} />
       {!isTracking && 
         <button
           type="button"
-          onClick={handleButton}
+          onClick={loadMoreBtn}
           className={styles.load_more}
         >
           Carregar mais

@@ -23,6 +23,36 @@
   background: #ED1C24;
   box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.33);
   border-radius: 50px;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-0.25em);
+  }
+}
+
+.random {
+  width: 170px;
+  height: 40px;
+  background-color: #ED1C24;
+  margin: 20px auto auto auto;
+  box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 50px;
+  align-items: center;
+
+  &:hover {
+    transform: translateY(-0.25em);
+  }
+
+  span {
+    font-family: 'Inter';
+    font-size: 22px;
+    color: white;
+    margin-left: 10px;
+  }
 }
 
 .sentinel {

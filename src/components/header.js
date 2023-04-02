@@ -1,5 +1,4 @@
 import { Poke_data } from '@/context/context'
-import { getPokes } from '@/utils/reqs'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
@@ -10,7 +9,6 @@ import styles from '../styles/Header.module.scss'
 export default function Header() {
   const { setSearch,
           allPokes,
-          setAllPokes,
           setDisplayPokes
         } = useContext(Poke_data)
 
@@ -31,7 +29,7 @@ export default function Header() {
 
     setDisplayPokes(filtred);
 
-    setSearch('');
+    setSearch((currentSearch) => currentSearch + ' ');
   }
 
   return(

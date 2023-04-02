@@ -16,7 +16,7 @@
   height: 260px;
 
   &:hover {
-    padding: 10px;
+    transform: translateY(-0.75em);
     transition: 0.2s;
   }
 

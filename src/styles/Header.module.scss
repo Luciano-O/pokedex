@@ -13,12 +13,18 @@
 
 .input_container {
   position: relative;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: translateY(-0.50em);
+  }
 
   .search_input {
     padding: 0.7rem 7.5rem 0.7rem 1.5rem;
     border-radius: 25px;
     border: 0;
     box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.34);
+    transition: ease-in 1s;
   
     &:focus {
       outline: none;
