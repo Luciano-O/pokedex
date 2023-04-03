@@ -41,10 +41,28 @@ export default function PokeCard(props) {
     setAnimation();
   }, [poke])
 
+  const returnString = (num) => {
+    if (num > 999 ) {
+      const str = String(num)
+
+      const result = str.substring(0, 1) + str.substring(2)
+
+      return result;
+    }
+
+    return String(num)
+  }
+
   return(
     <>
-      {poke.sprites && <card id={`poke${id}`} className={styles.poke_card}>
-        <span className={styles.poke_id}>N°{poke.order}</span>
+      {poke.sprites && <card id={`poke${id}`} 
+      className={styles.poke_card}
+      >
+        <span 
+          className={styles.poke_id}
+        >
+          N°{returnString(poke.id)}
+        </span>
         <Image 
           src={
             poke.sprites.other['official-artwork'].front_default
