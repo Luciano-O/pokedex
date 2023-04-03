@@ -73,7 +73,7 @@ export default function MainPokes() {
   const randomBtn = () => {
     setPokes([])
 
-    const random = Math.floor(Math.random(12 - 1281) * 1281)
+    const random = Math.floor(Math.random(12 - displayPokes.length) * displayPokes.length)
 
     setLimit(random)
   }

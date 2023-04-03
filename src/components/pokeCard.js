@@ -46,7 +46,11 @@ export default function PokeCard(props) {
       {poke.sprites && <card id={`poke${id}`} className={styles.poke_card}>
         <span className={styles.poke_id}>N°{poke.id}</span>
         <Image 
-          src={poke.sprites.other['official-artwork'].front_default}
+          src={
+            poke.sprites.other['official-artwork'].front_default
+            || poke.sprites.other['official-artwork'].front_shiny
+            || 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/800px-Image_not_available.png?20210219185637'
+          }
           alt={`${poke.name} Official artwork image`}
           loading="lazy"
           width='155'
