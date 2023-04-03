@@ -44,7 +44,7 @@ export default function PokeCard(props) {
   return(
     <>
       {poke.sprites && <card id={`poke${id}`} className={styles.poke_card}>
-        <span className={styles.poke_id}>N°{poke.id}</span>
+        <span className={styles.poke_id}>N°{poke.order}</span>
         <Image 
           src={
             poke.sprites.other['official-artwork'].front_default
