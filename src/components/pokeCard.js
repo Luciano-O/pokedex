@@ -1,3 +1,5 @@
+import React from 'react';
+import propTypes from 'prop-types';
 import { getPokes } from "@/utils/reqs"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -88,4 +90,9 @@ export default function PokeCard(props) {
       </card>}
     </>
   )
+}
+
+PokeCard.propTypes = {
+  url: propTypes.string.isRequired,
+  id: propTypes.number.isRequired
 }

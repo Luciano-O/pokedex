@@ -1,4 +1,6 @@
+import React from 'react';
 import { createContext, useState } from "react";
+import propTypes from 'prop-types';
 
 export const Poke_data = createContext(null);
 
@@ -21,6 +23,10 @@ function Context({ children }) {
       {children}
     </Poke_data.Provider>
   );
+}
+
+Context.propTypes = {
+  children: propTypes.shape({}).isRequired
 }
 
 export default Context;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Poke_data } from '@/context/context'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

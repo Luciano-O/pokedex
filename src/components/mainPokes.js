@@ -1,3 +1,4 @@
+import React from 'react';
 import { Poke_data } from "@/context/context"
 import { getPokes } from "@/utils/reqs"
 import { useContext, useEffect, useState } from "react"
