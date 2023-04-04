@@ -79,7 +79,7 @@ export default function MainPokes() {
   }
 
   return(
-    <>
+    <div className={styles.home}>
       <div
         onClick={randomBtn}
         className={styles.random}
@@ -101,6 +101,6 @@ export default function MainPokes() {
         >
           Carregar mais
         </button>}
-    </>
+    </div>
   )
 }
